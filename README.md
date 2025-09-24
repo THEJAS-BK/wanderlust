@@ -60,7 +60,6 @@ SECRET=your_session_secret
 CLOUD_NAME=your_cloud_name
 CLOUD_API_KEY=your_api_key
 CLOUD_API_SECRET=your_api_secret
-MONGO_URL=your_mongo_url
 ```
 4. Run the application
 ```bash
