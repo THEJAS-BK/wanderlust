@@ -27,7 +27,7 @@ Authentication: Passport.js
 Image Storage: Cloudinary
 
 📂 Project Structure
-text
+```text
 │── models/           # Mongoose models (User, Listing, Review)
 │── routes/           # Express route handlers for listings, reviews, and users
 │── views/            # EJS templates for UI (home, listings, reviews, authentication)
@@ -38,7 +38,7 @@ text
 │── app.js            # Main Express app entry point (server and route setup)
 │── package.json      # Project dependencies and npm scripts
 │── .env.example      # Example environment variables (MongoDB URI, Cloudinary, etc.)
-
+```
 
 Setup & Installation
 1. Clone the repository
