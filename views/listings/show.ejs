@@ -2,11 +2,11 @@
 <script>
   const loc = JSON.stringify("<%=listing.location%>")
 </script>
-<div class="row  offset-2 mt-4">
-  <div class="col-8">
+<div class="row  offset-1 offset-lg-2 offset-xl-2 mt-4">
+  <div class="col-10">
      <h2><b><%=listing.title%></b></h2>
 </div>
-<div class="card mb-3 col-8 show-card border-0">
+<div class="card mb-3 col-10 col-lg-9 col-xl-8 show-card border-0">
   <img src="<%=listing.image.url%>" class="card-img-top show-image" alt="Missing image" />
   <br>
   <div class="card-body">
@@ -20,7 +20,7 @@
 </div>
 <% if(currentUser && currentUser._id.equals(listing.owner._id)) {%>
   <div class="btns mb-4" style="padding-left:0">
-  <a href="/listings/<%=listing._id%>/edit" class="btn btn-dark col-1 edit-btn">Edit</a>
+  <a href="/listings/<%=listing._id%>/edit" class="btn btn-dark col-3 col-md-2 edit-btn col-lg-1">Edit</a>
 <form method="post" action="/listings/<%=listing._id%>?_method=delete">
   <button class="btn btn-dark offset-4">Delete</button>
 </form>
@@ -29,7 +29,7 @@
 
 <% if(currentUser){ %>
   <hr>
-<div class="col-8">
+<div class="col-10">
   <h4>Leave a review</h4>
   <form method="post" action="/listings/<%=listing._id%>/reviews" novalidate class="needs-validation">
     <br>
@@ -67,10 +67,10 @@
 
   <br>
   <% if(listing.reviews.length>0){ %>
-<div class="row">
+<div class="row gap-2">
     <h3>All Reviews</h3>
     <%for(review of listing.reviews){%>
-      <div class="card col-5 ms-3 mb-3">
+      <div class="card col-12 col-md-5 ms-3 mb-3">
         <div class="card-body">
           <div class="card-title">@<%=review.author.username%></div>
           <p class="card-text"><%=review.comment%></p>
@@ -90,9 +90,7 @@
 </div>
 <% } %>
 </div>
-<div class="row  mb-4">
-  <div class="col-8"> <h1>Where you'll be</h1><div id="map" style="height:50vh"></div>
-  </div></div>
+
 </div>
 
 

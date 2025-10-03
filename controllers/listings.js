@@ -22,29 +22,13 @@ module.exports.showListing = async (req, res) => {
 };
 //create a new listing
 module.exports.create = async (req, res) => {
+  console.log("yup");
   let url = req.file.path;
   let filename = req.file.filename;
   let listing = req.body.listing;
-  console.log(listing.location);
-  let lat, long;
-  await fetch(
-    `https://nominatim.openstreetmap.org/search?format=json&q=${listing.location}`
-  )
-    .then((res) => res.json())
-    .then((data) => {
-      lat = data[0].lat;
-      long = data[0].lon;
-    })
-    .catch((err) => {
-      console.log("this is a error\n", err);
-    });
   const newListing = new Listing(listing);
   newListing.owner = req.user._id;
   newListing.image = { url, filename };
-  newListing.geometry = {
-    type: "Point",
-    coordinates: [parseFloat(long), parseFloat(lat)],
-  };
   await newListing.save();
   req.flash("Success", "New listing created");
   res.redirect("/listings");
