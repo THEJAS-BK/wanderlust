@@ -1,10 +1,5 @@
 🏡 Wanderlust – Airbnb Clone
 A full-stack web application inspired by Airbnb, where users can create, browse, and review property listings. Built with Node.js, Express, EJS, and MongoDB, featuring authentication, image uploads, and star ratings.
-
-📸 Live Demo
-Check out the live demo:
-https://wanderlust-g8jq.onrender.com
-
 ✨ Features
 🔑 Authentication & Authorization – Secure login/signup with Passport.js. Owners can edit or delete only their own listings.
 🏠 Listings – Owners can create, edit, and delete property listings.
