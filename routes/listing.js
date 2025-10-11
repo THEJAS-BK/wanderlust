@@ -24,8 +24,9 @@ router.get("/:id", wrapAsync(listingController.showListing));
 //update route
 router.get(
   "/:id/edit",
-  isOwner,
   isLoggedIn,
+  isOwner,
+
   wrapAsync(listingController.showUpdatePage)
 );
 router.put(
