@@ -20,6 +20,10 @@ module.exports.saveRedirectUrl = (req, res, next) => {
 module.exports.isOwner = async (req, res, next) => {
   let { id } = req.params;
   let test = await Listing.findById(id);
+  console.log("Isowner:", test);
+  console.log("test.owner:", test.owner);
+  console.log("currentUser:", res.locals.currentUser);
+
   if (
     !test ||
     !test.owner ||
