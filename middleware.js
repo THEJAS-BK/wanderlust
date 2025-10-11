@@ -20,7 +20,11 @@ module.exports.saveRedirectUrl = (req, res, next) => {
 module.exports.isOwner = async (req, res, next) => {
   let { id } = req.params;
   let test = await Listing.findById(id);
-  if (!test.owner._id.equals(res.locals.currentUser._id)) {
+  if (
+    !test ||
+    !test.owner ||
+    !test.owner._id.equals(res.locals.currentUser._id)
+  ) {
     req.flash("error", "You are not authorized to do that");
     return res.redirect(`/listings/${id}`);
   }
@@ -49,7 +53,12 @@ module.exports.isReviewAuthor = async (req, res, next) => {
   if (!res.locals.currentUser) {
     req.flash("error", "Please login to do that");
     return res.redirect(`/listings/${id}`);
-  } else if (!test.author.equals(res.locals.currentUser._id)) {
+  }
+  if (
+    !test ||
+    !test.author ||
+    !test.author.equals(res.locals.currentUser._id)
+  ) {
     req.flash("error", "You are not allowed to do that");
     return res.redirect(`/listings/${id}`);
   }
