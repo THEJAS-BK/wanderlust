@@ -18,12 +18,21 @@
 </p>
 </div>
 </div>
-<% if(currentUser && currentUser._id.equals(listing.owner._id)) {%>
+<% if (
+  currentUser && 
+  listing.owner && 
+  currentUser._id && 
+  listing.owner._id && 
+  currentUser._id.equals(listing.owner._id)
+) { %>
   <div class="btns mb-4" style="padding-left:0">
-  <a href="/listings/<%=listing._id%>/edit" class="btn btn-dark col-3 col-md-2 edit-btn col-lg-1">Edit</a>
-<form method="post" action="/listings/<%=listing._id%>?_method=delete">
-  <button class="btn btn-dark offset-4">Delete</button>
-</form>
+    <a href="/listings/<%=listing._id%>/edit" class="btn btn-dark col-3 col-md-2 edit-btn col-lg-1">Edit</a>
+    <form method="post" action="/listings/<%=listing._id%>?_method=delete">
+      <button class="btn btn-dark offset-4">Delete</button>
+    </form>
+  </div>
+<% } %>
+
 </div>
 <% } %>
 
